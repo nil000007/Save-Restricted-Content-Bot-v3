@@ -1,0 +1,23 @@
+name: Python Run
+on :
+push:
+branches:
+- main
+
+jobs:
+   run python_ script:
+    runs-on: ubuntu-latest
+steps:
+- name: Checkout code
+uses: actions/checkout@v2
+- name: setup-python
+uses: actions/setup-python@v2
+with:
+python-version: '3.10'
+# Replace
+- name: Install Dependencies 
+run: 
+   pip install -r reguirements.txt
+- name: Run Python script
+run: 
+python -m main
